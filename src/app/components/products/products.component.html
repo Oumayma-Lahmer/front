@@ -1,0 +1,41 @@
+<div class="vh-100 mb-3" style="padding-top: 10%;  margin-left: 100px; margin-right: 100px" >
+<div class="form-container">
+  <h2 class="mb-4">Ajouter un nouveau Produit</h2>
+
+  <form (ngSubmit)="submitForm()" #ProductsForm="ngForm">
+      <div class="form-group">
+        <label for="nomCommercial" class="mb-1">NomCommercial :</label>
+        <input type="text" class="form-control" id="nomCommercial" name="nomCommercial" [(ngModel)]="Products.nomCommercial" required>
+      </div>
+     <!--
+       <div class="form-group">
+        <label for="nLot" class="mb-1">N Lot:</label>
+        <input type="text" class="form-control" id="nLot" name="nLot" [(ngModel)]="Products.nLot"  required>
+      </div>
+        
+      <div class="form-group">
+   
+        <label for="exp" class="mb-1">Date Expiration :</label>
+        <input type="Date" class="form-control" id="exp" name="exp" [(ngModel)]="Products.exp" required>
+      </div>
+      -->
+      <div class="form-group">
+        <label for="exp" class="mb-1">Prix :</label>
+        <input type="number" class="form-control" id="prix" name="prix" [(ngModel)]="Products.prix" required>
+      </div>
+      <div class="form-group">
+        <label for="exp" class="mb-1">Quantité :</label>
+        <input type="number" class="form-control" id="quantite" name="quantite" [(ngModel)]="Products.quantite" required>
+      </div>
+      <div class="form-group">
+        <label for="img" class="mb-1">Image :</label>
+        <input type="file" class="form-control" id="img" name="img" (change)="onFileSelected($event)" required>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Enregistrer</button>
+
+      <app-alert *ngIf="IsAlert" [type]="'alert-success'" (onClose)="OnAlerteClose()">
+        <strong>Sucess !</strong> Produit enregistrée avec succée .
+      </app-alert>
+    </form>
+    </div>
+  </div>

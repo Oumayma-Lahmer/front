@@ -1,0 +1,155 @@
+<!--
+<div class="container d-flex flex-column h-100 " style="padding-top: 10%; margin-left: 100px; margin-right: 100px;">
+    <section id="products" >
+        <div class="container pb-5">
+    
+          <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
+            <h3 class="display-3 fw-normal">Liste Produits</h3>
+          </div>
+    
+          <div class="products-carousel swiper" *ngFor="let produit of produits" style="padding-top: 5%;">
+            <div class="swiper-wrapper">
+    
+              <div class="swiper-slide">
+                <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
+                  New
+                </div>
+                <div class="card position-relative">
+                  <a routerLink="/detail"><img mat-card-image src="{{ produit.imageUrl }}" class="img-fluid rounded-4" alt="{{produit.nomCommercial}}" width="100" height="100"></a>
+                  <div class="card-body p-0">
+                   
+                      <h3 class="card-title font-weight-bold text-secondary" routerLink="/detail"> {{produit.nomCommercial}}  </h3>
+                    <p> {{produit.prix}} TND</p>
+                  </div>
+                </div>
+                <div>
+                  <button (click)="decrementQuantity()">-</button>
+                  <input type="number" [(ngModel)]="quantite" min="1">
+                  <button (click)="incrementQuantity()">+</button>
+                </div>
+                <button (click)="ajoutProduitPanier(produit.id)">Ajouter au panier</button>
+
+              </div>
+    
+            </div>
+          </div>
+
+          <div>
+            <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+              View all products
+              <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
+                <use xlink:href="#arrow-right"></use>
+              </svg></a>
+          </div>
+    
+    
+        </div>
+      </section>
+      <section class="mb-0" style="background-color: #ffffff; height: 100px;">
+        </section>
+    
+  </div>
+
+
+<div class="container">
+  <mat-card *ngFor="let produit of produits" class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ produit.nomCommercial}}</mat-card-title>
+      <mat-card-subtitle>{{ produit.prix | currency }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="produit.imageUrl" alt="Photo of {{ produit.nomCommercial }}">
+   
+     <mat-card-content>
+      <p>{{ produit.description }}</p>
+    </mat-card-content>
+  
+   <div>
+    <button (click)="decrementQuantity()">-</button>
+    <input type="number" [(ngModel)]="quantite" min="1">
+    <button (click)="incrementQuantity()">+</button>
+  </div>
+  <button (click)="ajoutProduitPanier(produit.id)">Ajouter au panier</button>
+  </mat-card>
+  
+</div>
+-->
+<!--
+  <div class="container d-flex flex-column h-100" style="padding-top: 10%; margin-left: 100px; margin-right: 100px;">
+  <section id="products">
+      <div class="container pb-5">
+          <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
+              <h3 class="display-3 fw-normal">Liste Produits</h3>
+          </div>
+          <div *ngIf="message">{{ message }}</div>
+          <ul>
+            <li *ngFor="let produit of produits" >
+              <a routerLink="/detail">
+                <img mat-card-image [src]="'http://localhost:8080' + produit.imageUrl"
+                     class="img-fluid rounded-4" alt="{{produit.nomCommercial}}" width="100" height="100">
+              </a>
+              <h3 class="card-title font-weight-bold text-secondary" routerLink="/detail">
+                {{produit.nomCommercial}}
+              </h3>
+              <p>{{produit.prix}} TND</p>
+              <div>
+                <button (click)="decrementQuantity()">-</button>
+                <input type="number" [(ngModel)]="quantite" min="1">
+                <button (click)="incrementQuantity()">+</button>
+              </div>
+              <button (click)="ajoutProduitPanier(produit.id)">Ajouter au panier</button>
+
+            </li>
+          </ul>
+          
+          <div>
+              <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                  View all products
+                  <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
+                      <use xlink:href="#arrow-right"></use>
+                  </svg>
+              </a>
+          </div>
+      </div>
+  </section>
+  <section class="mb-0" style="background-color: #ffffff; height: 100px;">
+  </section>
+</div>
+-->
+<div>
+  <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
+    <h3 class="display-3 fw-normal">Liste Produits</h3>
+</div>
+<div *ngIf="message">{{ message }}</div>
+<ul>
+  <li *ngFor="let produit of produits" >
+    <a routerLink="/detail">
+      <img mat-card-image [src]="'http://localhost:8080' + produit.imageUrl"
+           class="img-fluid rounded-4" alt="{{produit.nomCommercial}}" width="100" height="100">
+    </a>
+    <h3 class="card-title font-weight-bold text-secondary" routerLink="/detail">
+      {{produit.nomCommercial}}
+    </h3>
+    <p>{{produit.prix}} TND</p>
+    <div>
+      <button (click)="decrementQuantity()">-</button>
+      <input type="number" [(ngModel)]="quantite" min="1">
+      <button (click)="incrementQuantity()">+</button>
+    </div>
+  
+  <form (ngSubmit)="ajoutProduitPanier(produit.id)">
+    <label for="produitId">ID Produit:</label>
+    <input type="number" id="produitId" [(ngModel)]="produit.id" name="produitId" required>
+    <label for="quantite">Quantité:</label>
+    <input type="number" id="quantite" [(ngModel)]="produit.quantite" name="quantite" required>
+    <button type="submit">Ajouter au panier</button>
+  </form>
+</li>
+</ul>
+</div>
+
+
+
+
+
+

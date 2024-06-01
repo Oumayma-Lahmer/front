@@ -1,0 +1,4 @@
+<div class="alert" [ngClass]="{'alert-danger': type === 'alert-danger', 'alert-warning': type === 'alert-warning', 'alert-success': type === 'alert-success'}" role="alert">
+  <button type="button" class="btn-close" aria-label="Close" (click)="Close()"></button>
+  <ng-content></ng-content>
+</div>

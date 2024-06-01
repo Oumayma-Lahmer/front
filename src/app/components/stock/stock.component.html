@@ -1,0 +1,68 @@
+<div class="container d-flex flex-column h-100 justify-content-between" style="padding-top: 10%; margin-left: 100px; margin-right: 100px;">
+   
+    <table class="table table-hover table-striped" >
+      <thead>
+        <tr>
+          <th scope="col">Nom </th>
+          <th scope="col">Quantite</th>
+          <th scope="col">Prix</th>
+          <th scope="col">Date expiration</th>
+          <th scope="col">Action</th>
+
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let product of products" class="col-md-6" style="padding-top: 5%;">
+        <tr>
+           
+            <td>       
+                <h6 class="card-title font-weight-bold text-primary"> {{ product.nomCommercial }}</h6>
+            </td>
+            <td>       
+                <p class="card-text"> {{ product.quantite }}</p>
+            </td>
+            <td>       
+                <p class="card-text"> {{ product.prix }}</p>
+            </td>
+            <td>       
+                <p class="card-text">{{ product.exp }}</p>
+
+            </td>
+
+          
+            <td>
+              <button type="button" class="btn btn-warning ml-2"  (click)="afficheForm(product)" >
+                Modifier
+              </button>
+            </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    <div class="container mt-3"   *ngIf="productSelect">
+      <h2 class="mb-4">Modifier le produit</h2>
+      <form [formGroup]="formModification" (ngSubmit)="soumettreFormulaire()">
+        <div class="form-group">
+          <label class="mb-1" for="nomCommercial">nomCommercial:</label>
+          <input type="text" class="form-control" id="nomCommercial" formControlName="nomCommercial">
+        </div>
+
+        <div class="form-group">
+          <label class="mb-1" for="quantite">Quantité :</label>
+          <input type="text" class="form-control" id="quantite" formControlName="quantite">
+        </div>
+
+        <div class="form-group">
+          <label  class="mb-1" for="prix">prix :</label>
+          <input type="text"  class="form-control" id="prix" formControlName="prix">
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Enregistrer</button>
+      </form>
+
+    </div>
+
+
+  </div>
+  <section class="mb-0" style="background-color: #ffffff; height: 50px;">
+    </section>

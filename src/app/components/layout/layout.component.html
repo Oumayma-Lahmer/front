@@ -1,0 +1,25 @@
+
+<div class="container d-flex flex-column h-100 " style="padding-top: 10%;">  
+
+    <div *ngIf="userRole === 'employe'" class="vh-100" style="background-color: #eee; padding-top: 5%;">
+        Welcome ...
+        <app-list-commande></app-list-commande>
+    </div>
+
+    <section *ngIf="userRole === 'client'" class="mb-0" style=" padding-top: 5%;">
+
+        welcome ...
+        img + desc + boutton contact us
+        <button routerLink="/contact"> Contact Us</button>
+        <br>
+        Latest products
+        -----
+        <app-list-produits></app-list-produits>
+
+
+    </section>
+
+    <section class="mb-0" style="background-color: #ffffff; height: 50px;">
+      </section>
+
+</div>

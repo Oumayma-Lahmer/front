@@ -1,0 +1,60 @@
+<!-- <div class="container mt-5">
+    <h2>Mon Panier</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Prix</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let elem of panier">
+          <td>{{ elem.produit.nomCommercial }}</td>
+          <td>{{ elem.quantite }}</td>
+          <td>{{ elem.produit.prix }}</td>
+          <td>{{ elem.produit.prix * elem.quantite }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="retirerDuPanier(elem)">Retirer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-end">
+      <button class="btn btn-primary" (click)="passerCommande()">Passer commande</button>
+    </div>
+  </div>  -->
+  <div class="container mt-4">
+    <h2>Mon Panier</h2>
+    <div *ngIf="(panier$ | async) as panier">
+      <div *ngIf="panier.elemList.length > 0; else emptyCart">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Produit</th>
+              <th>Quantité</th>
+              <th>Prix</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let produit of panier.elemList">
+              <td>{{ produit.nomCommercial }}</td>
+              <td>{{ produit.quantite }}</td>
+              <td>{{ produit.prix | currency }}</td>
+              <td>
+                <button class="btn btn-danger btn-sm" (click)="retirerDuPanier(produit.id)">Retirer</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #emptyCart>
+        <p>Votre panier est vide.</p>
+      </ng-template>
+    </div>
+  </div>
+  <section class="mb-0" style="background-color: #ffffff; height: 500px;">
+  </section>
