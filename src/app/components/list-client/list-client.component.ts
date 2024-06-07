@@ -24,6 +24,7 @@ export class ListClientComponent implements OnInit {
     this.formModification = this.formBuilder.group({
       nom:['', Validators.required],
       email:['', Validators.required],
+      adresse:['', Validators.required],
       telephone:['', Validators.required]
     });
   }
@@ -50,6 +51,7 @@ export class ListClientComponent implements OnInit {
     this.formModification.patchValue({
       nom: client.nom,
       email : client.email,
+      adresse : client.adresse,
       telephone : client.telephone
 
     });
@@ -62,9 +64,10 @@ export class ListClientComponent implements OnInit {
       const nom = this.formModification.value.nom;
       const email = this.formModification.value.email;
       const telephone = this.formModification.value.telephone;
+      const adresse = this.formModification.value.adresse;
       const id = this.clientSelect.id;
 
-      const clientModifier = {id, nom, email, telephone};
+      const clientModifier = {id, nom, email,adresse, telephone};
 
       this.authService.editClient(clientModifier).subscribe(() => {
 

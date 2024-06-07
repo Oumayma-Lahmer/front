@@ -26,6 +26,9 @@
       <button class="btn btn-primary" (click)="passerCommande()">Passer commande</button>
     </div>
   </div>  -->
+  
+
+  
   <div class="container mt-4">
     <h2>Mon Panier</h2>
     <div *ngIf="(panier$ | async) as panier">
@@ -40,16 +43,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let produit of panier.elemList">
-              <td>{{ produit.nomCommercial }}</td>
-              <td>{{ produit.quantite }}</td>
-              <td>{{ produit.prix | currency }}</td>
+            <tr *ngFor="let elem of panier.elemList">
+              <td>{{ elem.nomCommercial }}</td>
+              <td>{{ elem.quantite }}</td>
+              <td>{{ elem.prix | currency }}</td>
+              <td>{{ elem.prix * elem.quantite | currency }}</td>
               <td>
-                <button class="btn btn-danger btn-sm" (click)="retirerDuPanier(produit.id)">Retirer</button>
+                <button class="btn btn-danger btn-sm" (click)="retirerDuPanier(elem)">Retirer</button>
               </td>
             </tr>
           </tbody>
         </table>
+        <div class="text-end">
+          <p><strong>Total: </strong>{{ getTotalPrice(panier.elemList) | currency }}</p>
+          <input class="btn "type="file" (change)="onFileSelected($event)" id="fileInput" accept=".jpg, .jpeg, .png, .gif">
+          <a class="cart_summary-btn btn" (click)="passerCommande()">Passer Commande</a>
+          
+        </div>
       </div>
       <ng-template #emptyCart>
         <p>Votre panier est vide.</p>
@@ -58,3 +68,4 @@
   </div>
   <section class="mb-0" style="background-color: #ffffff; height: 500px;">
   </section>
+

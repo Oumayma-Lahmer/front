@@ -1,0 +1,97 @@
+/* app.component.css */
+.bg-dark-green {
+    background-color: #254C47;
+}
+.search-box {
+  max-width: 400px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.search-box .form-control {
+  border: none;
+  border-radius: 25px 0 0 25px;
+  padding: 10px;
+  box-shadow: none;
+  z-index: 1;
+}
+
+.btn-yellow {
+  background-color: #E5B653;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  padding: 10px 15px;
+}
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.container-fluid {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.background-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;}
+.table-responsive {
+        position: relative; /* Add position: relative to the container */
+}
+.table {
+  z-index: 1; /* Add z-index to the table */
+}
+.action-icon {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .tooltip {
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .action-icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+  .container {
+    z-index: 1;
+    position: relative;
+    color: #E5B653;
+  }
+  .btn-primary{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #E5B653;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.container.mt-3 {
+    margin-left: 50px;
+   
+  }

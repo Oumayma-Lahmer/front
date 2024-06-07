@@ -1,0 +1,21 @@
+.text-overlay {
+  background-color: rgba(196, 204, 200, 0.85); /* Semi-transparent white background */
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.text-overlay h1, .text-overlay p {
+  color: #000; /* Darker text color for better readability */
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}

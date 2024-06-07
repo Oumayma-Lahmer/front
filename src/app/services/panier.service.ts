@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,22 +20,27 @@ export class PanierService {
 
     return this.http.post<any>(`${this.baseUrl}/addToPanier`,{}, { params, withCredentials: true }).pipe(
       map(response => {
+        console.log('Response from server:', response);
         this.loadPanier(); // Load the cart after adding the item
         return response;
+      }),
+      catchError(error => {
+        console.error('Erreur lors de l\'ajout au panier', error);
+        throw error; // Propagate the error to the component
       })
     );
    
   }
 
   getPanier(): Observable<PanierResponse> {
-   /* return this.http.get<PanierResponse>(`${this.baseUrl}/panier`, { withCredentials: true }).pipe(
+    return this.http.get<PanierResponse>(`${this.baseUrl}/panier`, { withCredentials: true }).pipe(
       map(response => {
         this.panierElemSubject.next(response);
         return response;
       })
     ); 
-   */
-    return this.http.get<any>(`${this.baseUrl}/panier`, { withCredentials: true });
+   
+    //return this.http.get<any>(`${this.baseUrl}/panier`, { withCredentials: true });
   }
 
   getPanierCount(): Observable<number> {
@@ -56,17 +61,17 @@ export class PanierService {
   }
 
   loadPanier(): void {
-    /*this.getPanier().subscribe(panier => {
+    this.getPanier().subscribe(panier => {
       this.panierElemSubject.next(panier);
     },
     error => {
       console.error('Failed to load panier', error);
     }
-  );*/
-  this.http.get<PanierResponse>(`${this.baseUrl}/panier`, { withCredentials: true }).subscribe(
+  );
+  /*this.http.get<PanierResponse>(`${this.baseUrl}/panier`, { withCredentials: true }).subscribe(
     response => this.panierElemSubject.next(response),
     error => console.error('Erreur lors du chargement du panier', error)
-  );
+  );*/
   }
 }
 

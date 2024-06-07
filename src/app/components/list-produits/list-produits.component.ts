@@ -5,7 +5,10 @@ import { PanierService } from 'src/app/services/panier.service';
 @Component({
   selector: 'app-list-produits',
   templateUrl: './list-produits.component.html',
-  styleUrls: ['./list-produits.component.css']
+  styleUrls: ['./list-produits.component.css',
+ 
+ 
+]
 })
 export class ListProduitsComponent implements OnInit {
 
@@ -45,10 +48,10 @@ export class ListProduitsComponent implements OnInit {
  ajoutProduitPanier(id: number): void {
   this.panierService.ajouterAuPanier(id, this.quantite).subscribe(response => {
     console.log('Produit ajouté au panier avec succès', response);
-    this.message = 'Produit ajouté au panier avec succès';
+   
   }, error => {
     console.error('Erreur lors de l\'ajout du produit au panier', error);
-    this.message = 'Erreur lors de l\'ajout du produit au panier';
+    
 
   });
   

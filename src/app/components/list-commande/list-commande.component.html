@@ -12,9 +12,13 @@
         <!-- Section détaillée initialement cachée -->
         <div *ngIf="commande.showDetails">
           <p>Date: {{ commande.date }}</p>
-          
           <p>Etat : {{ commande.etat }}</p>
           <p> Description : {{commande.description}}</p>
+          <p> ID du client : {{commande.client}}</p>
+          <div *ngIf="commande.ordonnancePath">
+            <p>Ordonnance :</p>
+          <img [src]="commande.ordonnanceFilePath" alt="Ordonnance" style="max-width: 100%; height: auto;">
+          </div>
         </div>
         <div *ngIf="commande.etat !== 'confirme' && commande.etat !== 'nonconfirme'">
             <button class="btn btn-success" (click)="accepterCommande(commande)">Accepter</button>

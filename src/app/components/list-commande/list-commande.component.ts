@@ -30,9 +30,9 @@ export class ListCommandeComponent implements OnInit {
     commande.showDetails = !commande.showDetails;
   }
   accepterCommande(commande: any) {
-    commande.etat = 'Non confirmée'
+    commande.etat = 'nonconfirme'
     if (confirm('Voulez-vous vraiment accepter cette commande ?')) {
-      commande.etat = 'confirmé';
+      commande.etat = 'confirme';
       this.commandeService.updateCommande(commande).subscribe(
         response => {
           console.log('Commande accepté avec succès', response);
@@ -60,6 +60,7 @@ export class ListCommandeComponent implements OnInit {
     if(confirm('Voulez-vous vraiment supprimer cette commande ?')){
       this.commandeService.deleteCommande(Commande).subscribe(() => {
         // Suppression réussie, recharger la liste des clients
+        console.log('Commande supprimée avec succès');
         this.loadCommandeList();
       },
       error => {

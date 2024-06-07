@@ -285,7 +285,7 @@ a:focus {
 
 .slider_section .detail-box a:hover {
   background-color: transparent;
-  color: #db4566;
+  color: #0d7748;
 }
 
 .slider_section .carousel_btn-box {
@@ -649,9 +649,9 @@ a:focus {
 .contact_section button {
   display: inline-block;
   padding: 12px 45px;
-  background-color: #db4f66;
+  background-color: #0d7748;
   color: #ffffff;
-  border: 1px solid #db4f66;
+  border: 1px solid #0d7748;
   border-radius: 0;
   -webkit-transition: all .3s;
   transition: all .3s;
@@ -662,7 +662,7 @@ a:focus {
 
 .contact_section button:hover {
   background-color: transparent;
-  color: #db4f66;
+  color: #0d7748;
 }
 
 .contact_section .map_container {
@@ -696,7 +696,7 @@ a:focus {
 
 .client_section .box .client_info .client_name h5 {
   font-weight: 600;
-  color: #db4f66;
+  color: #0d7748;
 }
 
 .client_section .box .client_info .client_name h6 {
@@ -718,7 +718,7 @@ a:focus {
 .client_section .carousel-control-next {
   width: 45px;
   height: 125px;
-  background-color: #db4f66;
+  background-color: #0d7748;
   opacity: 1;
   font-size: 28px;
   font-weight: bold;

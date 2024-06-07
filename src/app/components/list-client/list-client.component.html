@@ -1,11 +1,15 @@
-<div class="container d-flex flex-column h-100 justify-content-between" style="padding-top: 10%; margin-left: 100px; margin-right: 100px;">
+<div class="container-fluid bg-dark-green min-vh-100 d-flex flex-column justify-content-start align-items-center py-5">
   
-  <div class="search-bar mb-3 d-flex align-items-center">
-
+  <div class="search-box input-group mb-4">
+    
     <input type="text" class="form-control flex-grow-1 mr-2" [(ngModel)]="recherche" placeholder="search">
-
+   <br>
   </div>
-    <table class="table table-hover table-striped" >
+  <img src="assets/images/emp.png" class="background-image img-fluid position-absolute" alt="Image">
+  
+  <div class="d-flex w-100 justify-content-center">
+  <div class="table-responsive w-75 me-4 " >
+    <table class="table table-hover table-striped text-center">
       <thead>
         <tr>
           <th scope="col">id</th>
@@ -28,19 +32,27 @@
              <p class="card-text">{{ client.telephone }}</p>
           </td>
           <td>       
-            <button type="button" class="btn btn-warning me-2"  (click)="afficheForm(client)" >
-              Modifier
-            </button>
-            <button type="button" class="btn btn-warning " (click)="deleteClient(client)">
-                Supprimer
-            </button>
+           <span class="action-icon">
+            <i  class="bi bi-pencil-square me-2" style="font-size: 1.2rem; color: rgb(23, 144, 112);" (click)="afficheForm(client)" >
+           
+            </i>
+            <span class="tooltip"> Modifier</span>
+           </span>
+
+           <span class="action-icon">
+            <i  class="bi bi-trash " style="font-size: 1.2rem; color: rgb(23, 144, 112);" (click)="deleteClient(client)">
+               
+            </i>
+            <span class="tooltip">Supprimer</span>
+           </span>
           </td>
         </tr>
         
       </tbody>
     </table>
-    
-    <div class="container mt-3"   *ngIf="clientSelect">
+  </div>
+  
+    <div class="container w-50 ms-4"   *ngIf="clientSelect">
       <h2 class="mb-4">Modifier le client</h2>
       <form [formGroup]="formModification" (ngSubmit)="soumettreFormulaire()">
         <div class="form-group">
@@ -52,9 +64,12 @@
           <label class="mb-1" for="email">E-mail :</label>
           <input type="text" class="form-control" id="email" formControlName="email">
         </div>
-
         <div class="form-group">
-          <label  class="mb-1" for="telephone">telephone :</label>
+          <label  class="mb-1" for="adresse">Adresse :</label>
+          <input type="text"  class="form-control" id="adresse" formControlName="adresse">
+        </div>
+        <div class="form-group">
+          <label  class="mb-1" for="telephone">téléphone :</label>
           <input type="text"  class="form-control" id="telephone" formControlName="telephone">
         </div>
 
@@ -64,8 +79,9 @@
       </form>
 
     </div>
- 
   </div>
+</div>
   <section class="mb-0" style="background-color: #ffffff; height: 50px;">
     </section>
+
  

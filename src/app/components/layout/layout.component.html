@@ -1,19 +1,21 @@
+<!--
+<div class="container-fluid bg-dark-green min-vh-100 d-flex flex-column justify-content-start align-items-center py-5 " >  
+    <img src="assets/images/employee.png" class="background-image img-fluid position-absolute" alt="Image">
 
-<div class="container d-flex flex-column h-100 " style="padding-top: 10%;">  
+    <div *ngIf="userRole === 'employe'" class="vh-100 text-overlay" style="padding-top: 5%;">
+        <h1>Bienvenue, {{ employe?.nom}} {{employe?.prenom}} !</h1>
+        <p>Nous sommes ravis de vous accueillir à la pharmacie. Vous pouvez maintenant consulter la liste des commandes et gérer les stocks.</p>
 
-    <div *ngIf="userRole === 'employe'" class="vh-100" style="background-color: #eee; padding-top: 5%;">
-        Welcome ...
         <app-list-commande></app-list-commande>
     </div>
+    
+    <section *ngIf="userRole === 'client'" class="mb-0 text-overlay" style=" padding-top: 5%;">
 
-    <section *ngIf="userRole === 'client'" class="mb-0" style=" padding-top: 5%;">
-
-        welcome ...
-        img + desc + boutton contact us
-        <button routerLink="/contact"> Contact Us</button>
+        <h1>Bienvenue, {{ client?.nom }} {{ client?.prenom }}!</h1>
+        <p>Nous sommes ravis de vous accueillir. Vous pouvez maintenant consulter les derniers produits et nous contacter pour toute question.</p>
+        <button routerLink="/contact"> Contactez-nous</button>
         <br>
-        Latest products
-        -----
+        <strong>Derniers produits</strong>
         <app-list-produits></app-list-produits>
 
 
@@ -22,4 +24,26 @@
     <section class="mb-0" style="background-color: #ffffff; height: 50px;">
       </section>
 
+</div>
+-->
+<div class="container-fluid bg-dark-green min-vh-100 d-flex flex-column justify-content-start align-items-center py-5">  
+    <img src="assets/images/employee.png" class="background-image img-fluid position-absolute" alt="Image">
+
+    <div *ngIf="userRole === 'employe'" class="mb-0 text-overlay" style="padding-top: 3%;">
+        <h1>Bienvenue, {{employee.nom}} {{employee.prenom}}!</h1>
+        <p>Nous sommes ravis de vous accueillir à la pharmacie. Vous pouvez maintenant consulter la liste des commandes et gérer les stocks.</p>
+        <app-list-commande></app-list-commande>
+    </div>
+    
+    <section *ngIf="userRole === 'client'" class="mb-0 text-overlay" style="padding-top: 5%;">
+        <h1>Bienvenue, {{client.nom}} {{client.prenom}}  !</h1>
+        <p>Nous sommes ravis de vous accueillir. Vous pouvez maintenant consulter les derniers produits et nous contacter pour toute question.</p>
+        <button routerLink="/contact"> Contactez-nous</button>
+        <br>
+        <strong>Derniers produits</strong>
+        <app-list-produits></app-list-produits>
+    </section>
+
+    <section class="mb-0" style="background-color: #ffffff; height: 50px;">
+    </section>
 </div>

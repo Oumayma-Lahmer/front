@@ -11,6 +11,7 @@ export class AuthentificationService {
   private baseUrl = 'http://localhost:8080/api/auth';
   private clientApi = 'http://localhost:8080/api/client';
 
+
   private userRoleSubject = new BehaviorSubject<string | null>(localStorage.getItem('userRole'));
   userRole$ = this.userRoleSubject.asObservable();  
 
@@ -18,7 +19,6 @@ export class AuthentificationService {
 
   constructor(private http: HttpClient) { }
 
-  
   inscrireUtilisateur(inscriptionDTO: InscriptionDTO): Observable<any> {
     const registerUrl = `${this.baseUrl}/registre`;
     return this.http.post(registerUrl, inscriptionDTO);
@@ -66,7 +66,6 @@ getUserRole(): any{
 }
 
 
-
 }
 
 
@@ -86,4 +85,5 @@ interface Connexion{
   password: string;
   role: string;
 }
+
 

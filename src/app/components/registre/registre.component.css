@@ -1,5 +1,5 @@
 .register{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: -webkit-linear-gradient(left, #258f67, #39d79a);
     margin-top: 3%;
     padding: 3%;
 }
@@ -49,13 +49,13 @@
     padding: 10%;
     margin-top: 10%;
 }
-.btnRegister{
+.btn-primary{
     float: right;
     margin-top: 10%;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: #0062cc;
+    background: #258f67;
     color: #fff;
     font-weight: 600;
     width: 50%;
@@ -64,7 +64,7 @@
 .register .nav-tabs{
     margin-top: 3%;
     border: none;
-    background: #0062cc;
+    background: #258f67;
     border-radius: 1.5rem;
     width: 28%;
     float: right;
@@ -82,8 +82,8 @@
 }
 .register .nav-tabs .nav-link.active{
     width: 100px;
-    color: #0062cc;
-    border: 2px solid #0062cc;
+    color: #258f67;
+    border: 2px solid #258f67;
     border-top-left-radius: 1.5rem;
     border-bottom-left-radius: 1.5rem;
 }

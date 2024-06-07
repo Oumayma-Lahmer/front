@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthentificationService } from 'src/app/services/authentification.service';
 
 @Component({
@@ -9,14 +8,25 @@ import { AuthentificationService } from 'src/app/services/authentification.servi
 })
 export class LayoutComponent implements OnInit {
   userRole: string | null = null;
+   employee: any;
+   client: any;
 
-
-  constructor(private authService: AuthentificationService ,  private router: Router) { }
+  constructor(private authService: AuthentificationService ) {
+    this.employee = {
+      nom : "Employe",
+      prenom : "1"
+    };
+    this.client = {
+      nom : "Client",
+      prenom : "1"
+    };
+   }
  
 
   ngOnInit(): void {
     this.authService.userRole$.subscribe(role => {
       this.userRole = role;
+     
     });
   }
   

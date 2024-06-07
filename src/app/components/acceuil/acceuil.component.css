@@ -2,4 +2,41 @@
     width: 100%;
     height: 100%;
   }
+.background{
+ 
+  background-size: cover; /* Ajuste l'image pour couvrir tout l'élément */
+  background-repeat: no-repeat; /* Évite la répétition de l'image */
+  background-position: center; /* Centre l'image */
+  opacity: 0.5; /* Ajustez la transparence ici, 0.5 = 50% */
+  position: fixed;
+  top: 0;
   
+  left: 10%;
+  
+ 
+  z-index: -1;
+}
+.content{
+  position: relative;
+  z-index: 1; /* Pour s'assurer que le contenu est au-dessus de l'image de fond */
+  color: #094e18; /* Couleur de texte pour le contraste */
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); /* Texte noir */
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 18% auto;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.btn-primary{
+
+  background-color: #207532;
+ 
+}
+.btn-primary:focus,
+.btn-primary:active{
+  outline: none;
+  box-shadow: none;
+}

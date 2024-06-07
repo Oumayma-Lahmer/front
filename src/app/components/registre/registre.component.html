@@ -7,50 +7,50 @@
           <div class="card-body p-md-5">
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">S'inscrire</p>
                 <form (ngSubmit)="onSubmit()" class="mx-1 mx-md-4" [formGroup]="registrationForm">
                   
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                       <input type="text" id="nom" class="form-control" formControlName="nom" />
-                      <label class="form-label" for="nom">Your Name</label>
+                      <label class="form-label" for="nom">Nom</label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                       <input type="text" id="prenom" class="form-control" formControlName="prenom" />
-                      <label class="form-label" for="prenom">Your Surname</label>
+                      <label class="form-label" for="prenom">Prénom</label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                       <input type="email" id="email" class="form-control" formControlName="email" />
-                      <label class="form-label" for="email">Your Email</label>
+                      <label class="form-label" for="email">Email</label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                       <input type="password" id="password" class="form-control" formControlName="password" />
-                      <label class="form-label" for="password">Password</label>
+                      <label class="form-label" for="password">Mot de passe</label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                       <input type="text" id="adresse" class="form-control" formControlName="adresse" />
-                      <label class="form-label" for="adresse">Your Address</label>
+                      <label class="form-label" for="adresse">Adresse</label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                       <input type="text" id="telephone" class="form-control" formControlName="telephone" />
-                      <label class="form-label" for="telephone">Your Phone</label>
+                      <label class="form-label" for="telephone">Numéro du téléphone</label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
-                      <select id="role" class="form-select" (change)="onRoleChange($event)" formControlName="role">
-                        <option value="" selected disabled>Who are you ?</option>
-                        <option value="employe">Employe</option>
+                      <select id="role" class="form-select " (change)="onRoleChange($event)" formControlName="role">
+                        <option value="" selected disabled>rôle</option>
+                        <option value="employe">Employée</option>
                         <option value="client">Client</option>
                       </select>
                     </div>
@@ -59,7 +59,7 @@
         <!-- Champs spécifiques pour le rôle Patient -->
                     <div class="form-outline flex-fill mb-0">
                       <input type="number" id="experience" class="form-control" formControlName="experience" />
-                      <label class="form-label" for="experience">Your Experience</label>
+                      <label class="form-label" for="experience">Experience</label>
                     </div>
                    
                   </div>
@@ -67,7 +67,7 @@
                     <!-- Champs spécifiques pour le rôle Client -->
                     <div class="form-outline flex-fill mb-0">
                       <input type="number" id="fidelite" class="form-control" formControlName="fidelite" />
-                      <label class="form-label" for="fidelite">Fidelity</label>
+                      <label class="form-label" for="fidelite">Fidelité</label>
                     </div>
                   
                   </div>
@@ -75,23 +75,23 @@
                   <div class="form-check d-flex justify-content-center mb-5">
                     <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" formControlName="terms" />
                     <label class="form-check-label" for="form2Example3">
-                      I agree to all statements in <a href="#!">Terms of service</a>
+                      J'accepte toutes les déclarations dans <a href="#!">Conditions d'utilisation</a>
                     </label>
                   </div>
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-primary btn-lg" >Register</button>
+                    <button type="submit" class="btn btn-primary btn-lg" >Registre</button>
                   </div>
 
 
                   <app-alert *ngIf="IsAlert" [type]="'alert-success'" (onClose)="OnAlerteClose()">
-                    <strong>Sucess !</strong> Vous avez creez un compte <a  routerLink="/login">  Connecter ici  </a>.
+                    <strong>Succès !</strong> Vous avez creez un compte <a  routerLink="/login">  Connecter ici  </a>.
                   </app-alert>
 
 
                 
                 </form>
                 <div class="text-center">
-                  <p class="mb-3">Already have an account? <a class="btn btn-link text-primary" routerLink="/login">Login here</a></p>
+                  <p class="mb-3">Vous avez déjà un compte? <a class="btn btn-link text-primary" routerLink="/login">Connectez-vous ici</a></p>
                 </div>
                
               </div>
